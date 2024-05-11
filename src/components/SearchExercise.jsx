@@ -8,7 +8,7 @@ const SearchExercise = () => {
     const handleSearch = async () => {
         if (search) {
             try {
-                const exercisedata = await fetchdata('https://exercisedb.p.rapidapi.com/exercises', exerciseOptions);
+                const exercisedata = await fetchdata(`https://exercise-db-fitness-workout-gym.p.rapidapi.com/exercises/muscle/${search}`, exerciseOptions);
                 console.log(exercisedata);
             } catch (error) {
                 console.error('Error fetching exercise data:', error);
