@@ -9,6 +9,9 @@ const SearchExercise = () => {
         if (search) {
             try {
                 const exercisedata = await fetchdata(`https://exercise-db-fitness-workout-gym.p.rapidapi.com/exercises/muscle/${search}`, exerciseOptions);
+              exercisedata.forEach(exercise => {
+                    console.log(exercise.primaryMuscles);
+                });
                 console.log(exercisedata);
             } catch (error) {
                 console.error('Error fetching exercise data:', error);
