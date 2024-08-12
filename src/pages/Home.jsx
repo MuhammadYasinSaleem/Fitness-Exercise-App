@@ -8,7 +8,7 @@ const Home=()=>{
         <Box>
             <Herobanner/>
             <SearchExercise/>
-            <Exercise/>
+            {/* <Exercise/> */}
         </Box>
     )
 }
