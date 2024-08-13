@@ -16,19 +16,32 @@ const SearchExercise = ({setExercises,bodyPart,setBodyPart}) => {
         }
         fetchexercisedata();
     },[])
-    const handleSearch=async()=>{ 
-        const exerciseData=await fetchdata('https://exercisedb.p.rapidapi.com/exercises',exerciseOptions);
-        const searchedExercises = exerciseData.filter(
-            (item) => item.name.toLowerCase().includes(search)
-                   || item.target.toLowerCase().includes(search)
-                   || item.equipment.toLowerCase().includes(search)
-                   || item.bodyPart.toLowerCase().includes(search),
-          );
-    console.log(searchedExercises);
-    setSearch('')
-    setExercises(searchedExercises)
-    }
-
+    const handleSearch = async () => {
+        if (search) {
+            try {
+                let url = 'https://exercisedb.p.rapidapi.com/exercises';
+                const searchTerm = search.toLowerCase();
+                const exerciseData = await fetchdata(url, exerciseOptions);
+                if (!exerciseData) {
+                    console.error('No exercise data returned from the API.');
+                    return;
+                }
+                const searchedExercises = exerciseData.filter(
+                    (item) =>
+                        item.name.toLowerCase().includes(searchTerm) ||
+                        item.target.toLowerCase().includes(searchTerm) ||
+                        item.equipment.toLowerCase().includes(searchTerm) ||
+                        item.bodyPart.toLowerCase().includes(searchTerm)
+                );
+    
+                setSearch('');
+                setExercises(searchedExercises);
+            } catch (error) {
+                console.error('Error fetching exercises:', error);
+            }
+        }
+    };
+    
     return (
         <Stack alignItems="center" mt="37px" justifyContent="center" p="20px">
             <Typography fontWeight={700} sx={{ fontSize: { lg: '44px', xs: '30px' } }} mb="49px" textAlign="center">
