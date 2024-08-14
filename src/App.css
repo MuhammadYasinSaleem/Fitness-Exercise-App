@@ -100,9 +100,9 @@ body {
 .exercise-video {
   display: flex;
   flex-direction: column;
-  gap: 24px;
-  width: 387px;
-  height: 381px;
+  gap: 10px;
+  width: 250px;
+  height: 200px;
   text-decoration: none;
 }
 
