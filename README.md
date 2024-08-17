@@ -16,14 +16,5 @@ Fitness Exercise Project is build using:
 
 ## Preview
 
-![App Screenshot](./src/images/image.png)
-
-## Installation
-
-Use the following command to download related dependencies
-
-```bash
-npm i stripe use-shopping-cart next-sanity @stripe/stripe-js @sanity/image-url 
-```
-
+![App Screenshot](./src/assests/images/image.png)
 
